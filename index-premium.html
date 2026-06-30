@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plush Monarch Industries — Premium 2-ply tissue. Every roll, a statement of excellence." />
+  <title>Plush Monarch Industries</title>
+
+  <!--
+  FOLDER STRUCTURE
+  ───────────────────────────────────────────────
+  plushmonarch/
+  ├── index-premium.html    ← this file
+  ├── css/  premium.css
+  ├── js/   bounce.js  +  main.js (shared, optional)
+  └── images/
+       logo.png | hero-bg.jpg
+       product-4roll.jpg | product-6roll.jpg | product-16roll.jpg
+       gallery-1..6.jpg
+  ───────────────────────────────────────────────
+  UPDATE BEFORE GOING LIVE:
+    Replace "+27 000 000 0000" → real WhatsApp number
+    Replace "info@plushmonarchindustries.com" → real email
+    Update wa.me/27XXXXXXXXX links
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/premium.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     MOBILE MENU
+════════════════════════════════════════════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero"     onclick="closeMobile()">Home</a>
+  <a href="#products" onclick="closeMobile()">Products</a>
+  <a href="#craft"    onclick="closeMobile()">About</a>
+  <a href="#gallery"  onclick="closeMobile()">Gallery</a>
+  <a href="#contact"  onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+
+      <a href="#hero" class="nav-logo">
+        <img src="images/logo.png" alt="Plush Monarch Industries"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#craft">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-gold">Enquire</a>
+      </div>
+
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()" role="button" tabindex="0" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO — Dark stage, bouncing roll
+════════════════════════════════════════════ -->
+<section class="hero-p" id="hero" aria-label="Hero">
+
+  <!-- Atmosphere: spotlight glow on ground -->
+  <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
+
+  <!-- Ground surface line -->
+  <div class="hero-ground" id="heroGround" aria-hidden="true"></div>
+
+  <!-- Contact shadow (synced to bounce) -->
+  <div class="hero-shadow" id="heroShadow" aria-hidden="true"></div>
+
+  <!-- Impact shockwave ring -->
+  <div class="impact-ring" id="impactRing" aria-hidden="true"></div>
+
+  <!-- Particle origin point -->
+  <div class="impact-particles" id="impactParticles" aria-hidden="true"></div>
+
+  <!-- ── THE ROLL STAGE ── -->
+  <div class="roll-stage" aria-label="Plush Monarch tissue roll animation" role="img">
+    <div class="roll-dropper" id="rollDropper">
+      <div class="roll-squasher" id="rollSquasher">
+
+          <div class="roll-svg-p" id="rollSvgP" style="float: right; margin-left: 1rem;">
+            <img  src="images/single%20roll.png" alt="Plush Monarch Industries"/>
+          </div>
+
+      </div><!-- /roll-squasher -->
+    </div><!-- /roll-dropper -->
+  </div><!-- /roll-stage -->
+
+
+  <!-- ── HERO HEADLINE (revealed after bounce) ── -->
+  <div class="hero-headline" aria-live="polite">
+    <div class="container">
+      <div id="hlLine1" class="hero-line" aria-hidden="true">
+        <span class="hero-line-inner hl-large">Premium</span>
+      </div>
+      <div id="hlLine2" class="hero-line" style="margin-top:0.1em;" aria-hidden="true">
+        <span class="hero-line-inner hl-italic">Softness.</span>
+      </div>
+      <div id="hlLine3" class="hero-line" style="margin-top:1.2em;" aria-hidden="true">
+        <span class="hero-line-inner hl-sub">Royal Comfort &nbsp;·&nbsp; 2-Ply &nbsp;·&nbsp; Crafted for Excellence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HERO BOTTOM BAR ── -->
+  <div class="hero-bottom" id="heroBottom">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <div class="hero-features">
+        <span class="hero-feature"><span></span>Ultra Soft</span>
+        <span class="hero-feature"><span></span>Strong &amp; Absorbent</span>
+        <span class="hero-feature"><span></span>2-Ply</span>
+        <span class="hero-feature"><span></span>Multi-Pack</span>
+      </div>
+      <div style="display:flex; gap:1rem;">
+        <a href="#products" class="btn btn-gold">Explore</a>
+        <a href="#contact"  class="btn btn-light">Enquire</a>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+        Scroll
+      </div>
+    </div>
+  </div>
+
+</section><!-- /hero-p -->
+
+
+<!-- ══════════════════════════════════════════
+     MANIFESTO STRIP
+════════════════════════════════════════════ -->
+<div class="manifesto">
+  <div class="container">
+    <p class="manifesto-quote reveal">
+      "Every roll tells a story of <strong>meticulous craft</strong>,
+      ultra-soft layers, and a quiet confidence
+      that comfort should never be ordinary."
+    </p>
+    <p class="manifesto-attr reveal" style="transition-delay:0.15s;">Plush Monarch Industries</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PRODUCTS (EDITORIAL NUMBERED ROWS)
+════════════════════════════════════════════ -->
+<section class="products-p" id="products">
+  <div class="container">
+
+    <div class="products-p-header">
+      <h2 class="reveal">The Monarch Collection</h2>
+      <p class="reveal" style="transition-delay:0.1s;">Premium 2-Ply Tissue Series</p>
+    </div>
+
+    <!-- Row 01 — 4-Roll -->
+    <div class="product-row reveal">
+      <div class="product-row-info">
+        <div class="product-row-num">01</div>
+        <p class="product-row-label">The Classic</p>
+        <h3 class="product-row-name">4 Roll<br />Pack</h3>
+        <p class="product-row-spec">4 Pack &nbsp;·&nbsp; 4 Rolls &nbsp;·&nbsp; 2 Ply</p>
+        <p class="product-row-desc">
+          The everyday essential. Sized for single bathrooms and compact spaces,
+          the 4-Roll Pack delivers uncompromising softness in the most versatile format.
+        </p>
+        <div class="product-row-tags">
+          <span class="p-tag">Ultra Soft</span>
+          <span class="p-tag">2 Ply</span>
+          <span class="p-tag">Strong</span>
+        </div>
+        <a href="#contact" class="btn btn-gold">
+          Enquire
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+      <div class="product-row-image">
+        <img src="images/product-4roll.png" alt="Plush Monarch 4-Roll Pack"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="product-row-image-placeholder" style="display:none;">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(196,149,42,0.3)" stroke-width="0.8">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 02 — 6-Roll (reversed) -->
+    <div class="product-row reverse reveal" style="transition-delay:0.1s;">
+      <div class="product-row-info">
+        <div class="product-row-num">02</div>
+        <p class="product-row-label">The Favourite</p>
+        <h3 class="product-row-name">6 Roll<br />Pack</h3>
+        <p class="product-row-spec">6 Pack &nbsp;·&nbsp; 6 Rolls &nbsp;·&nbsp; 2 Ply</p>
+        <p class="product-row-desc">
+          Our most beloved format. The 6-Roll Pack strikes the perfect balance
+          between convenience and value — ideal for families who refuse to compromise.
+        </p>
+        <div class="product-row-tags">
+          <span class="p-tag">Ultra Soft</span>
+          <span class="p-tag">2 Ply</span>
+          <span class="p-tag">Family Size</span>
+        </div>
+        <a href="#contact" class="btn btn-gold">
+          Enquire
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+      <div class="product-row-image">
+        <img src="images/product-6roll.png" alt="Plush Monarch 6-Roll Pack"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="product-row-image-placeholder" style="display:none;">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(196,149,42,0.3)" stroke-width="0.8">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 03 — 16-Roll -->
+    <div class="product-row reveal" style="transition-delay:0.2s;">
+      <div class="product-row-info">
+        <div class="product-row-num">03</div>
+        <p class="product-row-label" style="color:var(--gold-l);">Best Value</p>
+        <h3 class="product-row-name">16 Roll<br />Pack</h3>
+        <p class="product-row-spec">16 Pack &nbsp;·&nbsp; 16 Rolls &nbsp;·&nbsp; 2 Ply</p>
+        <p class="product-row-desc">
+          The ultimate expression of value without sacrifice. Designed for large households,
+          hospitality venues, and business buyers who demand the Monarch standard at scale.
+        </p>
+        <div class="product-row-tags">
+          <span class="p-tag">Ultra Soft</span>
+          <span class="p-tag">2 Ply</span>
+          <span class="p-tag">Bulk Value</span>
+          <span class="p-tag">Wholesale</span>
+        </div>
+        <a href="#contact" class="btn btn-gold">
+          Enquire
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+      <div class="product-row-image">
+        <img src="images/product-16roll.png" alt="Plush Monarch 16-Roll Pack"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="product-row-image-placeholder" style="display:none;">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(196,149,42,0.3)" stroke-width="0.8">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CRAFT / ABOUT
+════════════════════════════════════════════ -->
+<section class="craft" id="craft">
+  <div class="container">
+    <div class="craft-inner">
+
+      <div class="craft-image-wrap reveal">
+        <img
+          src="images/4%20roll.png"
+          alt="Plush Monarch premium tissue rolls"
+          class="craft-image"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="craft-image-bg" style="display:none;" aria-hidden="true">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(196,149,42,0.4)" stroke-width="0.8">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5"/>
+          </svg>
+        </div>
+        <div class="craft-badge">
+          <span class="craft-badge-num">2×</span>
+          <span class="craft-badge-text">Soft · Strong<br />The Royal Standard</span>
+        </div>
+      </div>
+
+      <div class="craft-content reveal" style="transition-delay:0.15s;">
+        <p class="craft-label">Our Craft</p>
+        <h2 class="craft-heading">
+          Built on<br /><em>Softness.</em><br />Defined by Quality.
+        </h2>
+        <p class="craft-body">
+          Plush Monarch Industries was born from the belief that the everyday
+          deserves the extraordinary. We obsess over every layer, every sheet,
+          every embossed crown that marks our product as distinct.
+        </p>
+        <blockquote class="craft-quote">
+          "Comfort isn't a luxury. It's the minimum we should all expect."
+        </blockquote>
+        <p class="craft-body">
+          Our 2-ply tissue products are engineered for both softness and strength,
+          wrapped in packaging that reflects the premium nature of what's inside.
+          Available in 4, 6, and 16 roll configurations for every context.
+        </p>
+        <div class="craft-values">
+          <div class="craft-val">
+            <div class="craft-val-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+              </svg>
+            </div>
+            <div class="craft-val-text">
+              <h4>Premium Quality</h4>
+              <p>Every roll to the highest spec.</p>
+            </div>
+          </div>
+          <div class="craft-val">
+            <div class="craft-val-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="craft-val-text">
+              <h4>Trusted Brand</h4>
+              <p>Synonymous with softness.</p>
+            </div>
+          </div>
+          <div class="craft-val">
+            <div class="craft-val-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 014 0v2"/>
+              </svg>
+            </div>
+            <div class="craft-val-text">
+              <h4>Multi-Pack Range</h4>
+              <p>4, 6 &amp; 16 roll options.</p>
+            </div>
+          </div>
+          <div class="craft-val">
+            <div class="craft-val-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <div class="craft-val-text">
+              <h4>Retail &amp; Wholesale</h4>
+              <p>Supply for any scale.</p>
+            </div>
+          </div>
+        </div>
+        <div class="craft-cta">
+          <a href="#contact" class="btn btn-dark">
+            Make an Enquiry
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     GALLERY
+════════════════════════════════════════════ -->
+<section class="gallery-p" id="gallery">
+  <div class="container">
+    <div class="gallery-p-header reveal">
+      <h2>The Gallery</h2>
+      <span class="gallery-p-sub">Product &amp; Packaging Imagery</span>
+    </div>
+
+    <div class="gallery-p-grid reveal" style="transition-delay:0.1s;">
+
+      <div class="g-item g-1">
+        <img src="images/gallery-1.jpg" alt="Single roll — embossed crown texture close-up" loading="lazy"
+          onerror="this.parentElement.style.background='#1A1916';this.style.display='none';"/>
+      </div>
+      <div class="g-item g-2">
+        <img src="images/gallery-3.jpg" alt="4-Roll pack packaging" loading="lazy"
+          onerror="this.parentElement.style.background='#1A1916';this.style.display='none';"/>
+      </div>
+      <div class="g-item g-3">
+        <img src="images/gallery-5.jpg" alt="6-Roll pack packaging" loading="lazy"
+          onerror="this.parentElement.style.background='#1A1916';this.style.display='none';"/>
+      </div>
+      <div class="g-item g-4">
+        <img src="images/gallery-2.jpg" alt="4 rolls stacked — no packaging" loading="lazy"
+          onerror="this.parentElement.style.background='#1A1916';this.style.display='none';"/>
+      </div>
+      <div class="g-item g-5">
+        <img src="images/gallery-4.jpg" alt="16-Roll pack packaging" loading="lazy"
+          onerror="this.parentElement.style.background='#1A1916';this.style.display='none';"/>
+      </div>
+      <div class="g-item g-6">
+        <img src="images/gallery-6.jpg" alt="Embossing pattern — royal crown detail" loading="lazy"
+          onerror="this.parentElement.style.background='#1A1916';this.style.display='none';"/>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════ -->
+<section class="contact-p" id="contact">
+  <div class="container">
+    <div class="contact-p-inner">
+
+      <div class="reveal">
+        <p class="contact-p-label">Get In Touch</p>
+        <h2 class="contact-p-heading">
+          Let's Talk<br /><em>Comfort.</em>
+        </h2>
+        <p class="contact-p-desc">
+          Whether you're a retailer, hospitality buyer, or individual customer —
+          we'd love to hear from you. Reach out via any channel and we'll respond within one business day.
+        </p>
+
+        <div class="contact-links">
+          <a href="https://wa.me/27000000000?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Plush%20Monarch%20products."
+             class="c-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+            <div class="c-link-icon c-link-icon--wa">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.062.524 4.003 1.442 5.698L.054 23.346a.5.5 0 00.6.6l5.648-1.388A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.51-5.17-1.396l-.371-.22-3.833.942.96-3.833-.23-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+              </svg>
+            </div>
+            <div class="c-link-text">
+              <div class="c-link-label">WhatsApp</div>
+              <div class="c-link-val">+27 000 000 0000</div>
+            </div>
+          </a>
+
+          <a href="mailto:info@plushmonarchindustries.com" class="c-link" aria-label="Send email">
+            <div class="c-link-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="c-link-text">
+              <div class="c-link-label">Email</div>
+              <div class="c-link-val">info@plushmonarchindustries.com</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-p-form reveal" style="transition-delay:0.15s;">
+        <h3>Send an Enquiry</h3>
+        <form id="enquiryForm" novalidate>
+          <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off"/>
+
+          <div class="f-row">
+            <div class="f-group">
+              <label for="f-name">Full Name *</label>
+              <input type="text" id="f-name" name="name" required placeholder="Your name" autocomplete="name"/>
+            </div>
+            <div class="f-group">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+27 000 000 0000" autocomplete="tel"/>
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="f-email">Email Address *</label>
+            <input type="email" id="f-email" name="email" required placeholder="you@example.com" autocomplete="email"/>
+          </div>
+          <div class="f-group">
+            <label for="f-product">Product Interest</label>
+            <select id="f-product" name="product">
+              <option value="">— Select (optional) —</option>
+              <option value="4-roll">4 Roll Pack</option>
+              <option value="6-roll">6 Roll Pack</option>
+              <option value="16-roll">16 Roll Pack</option>
+              <option value="wholesale">Wholesale / Bulk</option>
+              <option value="general">General Enquiry</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="f-msg">Message *</label>
+            <textarea id="f-msg" name="message" required placeholder="Tell us how we can help…"></textarea>
+          </div>
+          <p class="f-privacy">
+            Your information is used solely to respond to your enquiry.
+            We do not sell or share your data. See our <a href="#privacy">Privacy Policy</a>.
+          </p>
+          <button type="submit" class="btn btn-dark" style="width:100%; justify-content:center;">
+            Send Message
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+          <div class="f-success" id="formSuccess" role="alert">
+            ✓ Received. We'll be in touch within one business day.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="footer-p">
+  <div class="container">
+    <div class="footer-p-main">
+
+      <div>
+        <div class="fp-brand-name">PLUSHMONARCHINDUSTRIES</div>
+        <div class="fp-brand-tag">Premium Softness. Royal Comfort.</div>
+        <p class="fp-brand-desc">
+          Ultra-soft 2-ply tissue products for homes, hospitality, and business across South Africa.
+        </p>
+        <div class="fp-socials">
+          <a href="#" class="fp-social" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="fp-social" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/27000000000" class="fp-social" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.062.524 4.003 1.442 5.698L.054 23.346a.5.5 0 00.6.6l5.648-1.388A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.51-5.17-1.396l-.371-.22-3.833.942.96-3.833-.23-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="fp-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#craft">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="fp-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">4 Roll Pack</a></li>
+          <li><a href="#products">6 Roll Pack</a></li>
+          <li><a href="#products">16 Roll Pack</a></li>
+          <li><a href="#contact">Wholesale</a></li>
+        </ul>
+      </div>
+
+      <div class="fp-col">
+        <h4>Contact</h4>
+        <div class="fp-contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+          </svg>
+          <span>+27 000 000 0000</span>
+        </div>
+        <div class="fp-contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>info@plushmonarchindustries.com</span>
+        </div>
+        <div class="fp-contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>South Africa</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-p-bottom">
+      <p>&copy; 2024 Plush Monarch Industries. All rights reserved.</p>
+      <div class="footer-p-bottom-links">
+        <a href="#" id="privacy">Privacy Policy</a>
+        <a href="#" id="terms">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/27000000000?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Plush%20Monarch%20products."
+   class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.062.524 4.003 1.442 5.698L.054 23.346a.5.5 0 00.6.6l5.648-1.388A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.653-.51-5.17-1.396l-.371-.22-3.833.942.96-3.833-.23-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<!-- Animation script (load last) -->
+<script src="js/bounce.js"></script>
+
+</body>
+</html>
